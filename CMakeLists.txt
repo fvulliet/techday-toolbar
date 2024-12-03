@@ -17,10 +17,16 @@ qt_add_qml_module(apptechday-toolbar
     VERSION 1.0
     QML_FILES
         Main.qml
-        qml/Toolbar.qml
-        qml/Button.qml
-        qml/Page.qml
+        components/Button.qml
+        components/Page.qml
+        components/Toolbar.qml
 )
+
+# Add the resource file to the project
+qt_add_resources(RESOURCES application.qrc)
+
+# Include the resources in your target
+target_sources(apptechday-toolbar PRIVATE ${RESOURCES})
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
@@ -43,3 +49,4 @@ install(TARGETS apptechday-toolbar
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+

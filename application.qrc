@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fonts/fa-solid-900.ttf</file>
+        <file>fonts/icomoon.ttf</file>
+        <file>fonts/reMarkableSans-Bold.ttf</file>
+        <file>fonts/reMarkableSans-BoldItalic.ttf</file>
+        <file>fonts/reMarkableSans-ExtraBold.ttf</file>
+        <file>fonts/reMarkableSans-ExtraBoldItalic.ttf</file>
+        <file>fonts/reMarkableSans-Light.ttf</file>
+        <file>fonts/reMarkableSans-LightItalic.ttf</file>
+        <file>fonts/reMarkableSans-Medium.ttf</file>
+        <file>fonts/reMarkableSans-MediumItalic.ttf</file>
+        <file>fonts/reMarkableSans-Regular.ttf</file>
+        <file>fonts/reMarkableSans-RegularItalic.ttf</file>
+        <file>fonts/reMarkableSans-SemiBold.ttf</file>
+        <file>fonts/reMarkableSans-SemiBoldItalic.ttf</file>
+        <file>fonts/reMarkableSans-Variable.ttf</file>
+    </qresource>
+</RCC>
+
