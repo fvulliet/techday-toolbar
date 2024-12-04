@@ -7,31 +7,49 @@ Item {
     property bool isStrong: true
     property string label
     property int padding: 20
+    property string icon
+
+    property bool _isIcon: icon.length > 0
 
     signal clicked()
 
-    width: payload.implicitWidth
-    height: payload.implicitHeight
+    implicitWidth: payload.implicitWidth
+    implicitHeight: payload.implicitHeight
 
     Rectangle {
         id: payload
-        width: myLabel.implicitWidth + root.padding
-        height: myLabel.implicitHeight + root.padding
+        implicitWidth: root._isIcon ? myIcon.implicitWidth + root.padding : myLabel.implicitWidth + root.padding
+        implicitHeight: root._isIcon ? myIcon.implicitHeight + root.padding : myLabel.implicitHeight + root.padding
         color: root.isStrong ? "black" : "white"
         border {
-            width: 1
+            width: 2
             color: root.isStrong ? "white" : "black"
         }
+        radius: 5
+        anchors.centerIn: parent
 
         Text {
             id: myLabel
             font {
-                pixelSize: 24
+                pixelSize: 32
                 family: "reMarkableSans-Regular"
             }
             text: root.label
             color: root.isStrong ? "white" : "black"
             anchors.centerIn: parent
+            visible: root.label.length > 0
+        }
+
+        Text {
+            id: myIcon
+            font {
+                pixelSize: 32
+                family: "icomoon"
+            }
+            text: root.icon
+            color: root.isStrong ? "white" : "black"
+            anchors.centerIn: parent
+            visible: root.icon.length > 0
         }
     }
 

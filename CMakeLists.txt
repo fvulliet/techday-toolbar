@@ -18,7 +18,7 @@ qt_add_qml_module(apptechday-toolbar
     QML_FILES
         Main.qml
         components/Button.qml
-        components/Page.qml
+        components/Frame.qml
         components/Toolbar.qml
 )
 
