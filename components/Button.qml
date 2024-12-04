@@ -6,10 +6,12 @@ Item {
     property alias color: payload.color
     property bool isStrong: true
     property string label
-    property int padding: 20
+    property int padding: 24
     property string icon
 
     property bool _isIcon: icon.length > 0
+    property int _minHeight: 72
+    property int _minWidth: 88
 
     signal clicked()
 
@@ -18,8 +20,8 @@ Item {
 
     Rectangle {
         id: payload
-        implicitWidth: root._isIcon ? myIcon.implicitWidth + root.padding : myLabel.implicitWidth + root.padding
-        implicitHeight: root._isIcon ? myIcon.implicitHeight + root.padding : myLabel.implicitHeight + root.padding
+        implicitWidth: Math.max(root._minWidth, root._isIcon ? myIcon.implicitWidth + root.padding : myLabel.implicitWidth + root.padding)
+        implicitHeight: Math.max(root._minHeight, root._isIcon ? myIcon.implicitHeight + root.padding : myLabel.implicitHeight + root.padding)
         color: root.isStrong ? "black" : "white"
         border {
             width: 2
@@ -31,7 +33,7 @@ Item {
         Text {
             id: myLabel
             font {
-                pixelSize: 32
+                pixelSize: 24
                 family: "reMarkableSans-Regular"
             }
             text: root.label
@@ -43,7 +45,7 @@ Item {
         Text {
             id: myIcon
             font {
-                pixelSize: 32
+                pixelSize: 24
                 family: "icomoon"
             }
             text: root.icon
