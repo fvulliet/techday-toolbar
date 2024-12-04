@@ -38,8 +38,6 @@ Window {
                     topMargin: 10
                     left: page.left
                     leftMargin: 10
-                    right: page.right
-                    rightMargin: 10
                 }
                 isHorizontal: root._horizontalToolbar
                 buttons: [
@@ -53,7 +51,7 @@ Window {
                 onClicked: function (index) {
                     switch (index) {
                     case 0:
-                        root._horizontalToolbar = root._horizontalToolbar;
+                        root._horizontalToolbar = !root._horizontalToolbar;
                         break;
                     case 1:
                         root._currentColor = "red";
@@ -77,10 +75,13 @@ Window {
             Rectangle {
                 anchors {
                     top: root._horizontalToolbar ? toolbar.bottom : page.top
-                    topMargin: 50
+                    topMargin: 10
                     bottom: page.bottom
+                    bottomMargin: 10
                     left: root._horizontalToolbar ? page.left : toolbar.right
+                    leftMargin: 10
                     right: page.right
+                    rightMargin: 10
                 }
                 color: root._currentColor
             }

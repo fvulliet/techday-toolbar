@@ -13,15 +13,13 @@ Item {
     implicitHeight: list.implicitHeight
     implicitWidth: list.implicitWidth
 
-    onImplicitHeightChanged: console.log("-----implicitHeight", implicitHeight)
-
     ListView {
         id: list
         orientation: root.isHorizontal ? ListView.Horizontal : ListView.Vertical
         model: root.buttons
         spacing: 10
-        width: contentItem.childrenRect.width * (root.isHorizontal ? count : 1)
-        height: contentItem.childrenRect.height * (root.isHorizontal ? 1 : count)
+        implicitWidth: contentItem.childrenRect.width * (root.isHorizontal ? count : 1)
+        implicitHeight: contentItem.childrenRect.height * (root.isHorizontal ? 1 : count)
         clip: true
         interactive: root.isHorizontal ? contentWidth > width : contentHeight > height
         delegate: Button {
