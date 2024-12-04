@@ -49,6 +49,7 @@ Window {
                     { label: "", icon: "\ue905" }
                 ]
                 onClicked: function (index) {
+                    toolbar.currentIndex = index;
                     switch (index) {
                     case 0:
                         root._horizontalToolbar = !root._horizontalToolbar;
