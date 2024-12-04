@@ -12,6 +12,7 @@ Window {
 
     property color _currentColor: "white"
     property bool _horizontalToolbar: true
+    property string _icon: ""
 
     FontLoader {
         id: icomoonFont
@@ -41,12 +42,12 @@ Window {
                 }
                 isHorizontal: root._horizontalToolbar
                 buttons: [
-                    { label: "Foo", icon: "" },
-                    { label: "", icon: "\ue901" },
-                    { label: "Bar", icon: "" },
-                    { label: "", icon: "\ue903" },
-                    { label: "Baz", icon: "" },
-                    { label: "", icon: "\ue905" }
+                    { label: "Flip", icon: "" },
+                    { label: "", icon: "\ue928" },
+                    { label: "Blue", icon: "" },
+                    { label: "", icon: "\ue929" },
+                    { label: "Yellow", icon: "" },
+                    { label: "", icon: "\ue92b" }
                 ]
                 onClicked: function (index) {
                     toolbar.currentIndex = index;
@@ -55,19 +56,27 @@ Window {
                         root._horizontalToolbar = !root._horizontalToolbar;
                         break;
                     case 1:
-                        root._currentColor = "red";
+                        root._currentColor = "white";
+                        root._icon = "\ue928";
+                        icon.color = "yellow";
                         break;
                     case 2:
                         root._currentColor = "blue";
+                        root._icon = "";
                         break;
                     case 3:
-                        root._currentColor = "green";
+                        root._currentColor = "white";
+                        root._icon = "\ue929";
+                        icon.color = "blue";
                         break;
                     case 4:
                         root._currentColor = "yellow";
+                        root._icon = "";
                         break;
                     case 5:
                         root._currentColor = "white";
+                        root._icon = "\ue92b";
+                        icon.color = "black";
                         break;
                     }
                 }
@@ -85,6 +94,18 @@ Window {
                     rightMargin: 10
                 }
                 color: root._currentColor
+
+                Text {
+                    id: icon
+                    font {
+                        pixelSize: 256
+                        family: "icomoon"
+                    }
+                    text: root._icon
+                    color: "black"
+                    anchors.centerIn: parent
+                    visible: text.length > 0
+                }
             }
         }
     }
