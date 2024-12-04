@@ -29,6 +29,7 @@ Item {
             isStrong: del.index === list.currentIndex
             label: modelData.label
             icon: modelData.icon
+            opacity: modelData.opacity
             onClicked: root.clicked(del.index)
         }
     }

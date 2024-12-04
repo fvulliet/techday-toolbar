@@ -13,6 +13,7 @@ Window {
     property color _currentColor: "white"
     property bool _horizontalToolbar: true
     property string _icon: ""
+    property bool _showItems: true
 
     FontLoader {
         id: icomoonFont
@@ -42,12 +43,12 @@ Window {
                 }
                 isHorizontal: root._horizontalToolbar
                 buttons: [
-                    { label: "Flip", icon: "" },
-                    { label: "", icon: "\ue928" },
-                    { label: "Blue", icon: "" },
-                    { label: "", icon: "\ue929" },
-                    { label: "Yellow", icon: "" },
-                    { label: "", icon: "\ue92b" }
+                    { label: "Flip", icon: "", opacity: 1 },
+                    { label: (root._showItems ? "Hide" : "Show"), icon: "", opacity: 1 },
+                    { label: "", icon: "\ue928", opacity: (root._showItems ? 1 : 0) },
+                    { label: "Blue", icon: "", opacity: (root._showItems ? 1 : 0) },
+                    { label: "", icon: "\ue929", opacity: (root._showItems ? 1 : 0) },
+                    { label: "Yellow", icon: "", opacity: (root._showItems ? 1 : 0) }
                 ]
                 onClicked: function (index) {
                     toolbar.currentIndex = index;
@@ -56,27 +57,25 @@ Window {
                         root._horizontalToolbar = !root._horizontalToolbar;
                         break;
                     case 1:
+                        root._showItems = !root._showItems;
+                        break;
+                    case 2:
                         root._currentColor = "white";
                         root._icon = "\ue928";
                         icon.color = "yellow";
                         break;
-                    case 2:
+                    case 3:
                         root._currentColor = "blue";
                         root._icon = "";
                         break;
-                    case 3:
+                    case 4:
                         root._currentColor = "white";
                         root._icon = "\ue929";
                         icon.color = "blue";
                         break;
-                    case 4:
+                    case 5:
                         root._currentColor = "yellow";
                         root._icon = "";
-                        break;
-                    case 5:
-                        root._currentColor = "white";
-                        root._icon = "\ue92b";
-                        icon.color = "black";
                         break;
                     }
                 }
