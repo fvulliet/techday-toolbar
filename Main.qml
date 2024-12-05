@@ -1,5 +1,6 @@
 pragma ComponentBehavior: Bound
 import QtQuick
+import QtQuick.Layouts
 import "./components" as Components
 
 Window {
@@ -82,6 +83,7 @@ Window {
             }
 
             Rectangle {
+                id: payload
                 anchors {
                     top: root._horizontalToolbar ? toolbar.bottom : page.top
                     topMargin: 10
@@ -104,6 +106,38 @@ Window {
                     color: "black"
                     anchors.centerIn: parent
                     visible: text.length > 0
+                }
+
+                RowLayout {
+                    id: row
+                    //width: parent.width // uncomment if you want the layout to take advantage of the full width
+                    height: 100
+                    anchors.bottom: parent.bottom
+                    spacing: 10
+
+                    Repeater {
+                        id: repeat
+                        model: 5
+                        delegate: Rectangle {
+                            id: del
+                            color: "white"
+                            border {
+                                width: 2
+                                color: "black"
+                            }
+                            Layout.fillHeight: true
+                            Layout.preferredWidth: 50 + 10 * Math.random()
+
+                            Text {
+                                font {
+                                    pixelSize: 18
+                                }
+                                text: Math.floor(del.width)
+                                color: "black"
+                                anchors.centerIn: parent
+                            }
+                        }
+                    }
                 }
             }
         }
